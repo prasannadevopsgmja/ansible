@@ -1,0 +1,25 @@
+---
+- hosts: swam_cluster
+  become: true
+  vars:
+    ansible_ssh_user: ubuntu
+    ansible_ssh_private_key_file: ssh_keys/prasanna.pem
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=latest
+      become: yes
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
+      become: yes
+    - name: copy the nginx config file and restart nginx
+      copy:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+      become: yes
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+      become: yes
