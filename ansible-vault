@@ -1,0 +1,36 @@
+ansible vault is used encrypt ansible files playbooks.By this we can provide security to our paybooks.
+
+ansible vault commands
+ --------------------------
+1) ansible-vault create nginxdeployment.yaml(playbook name) -----> tyo creat encryption for new playbook.
+New Vault password:xxxxxxxxxxxx
+Confirm new vault password: XXXXXXXXXXXXX
+it open page to write playbook
+:wq!
+
+2)ansible-playbook playbookname --ask-vault-pass  --------> to execute encrypted playbook
+Vault password:XXXXXXXXXXX
+
+It will execute play book
+
+
+3)ansible-vault encrypt playbookname  -------------------> to encrypt existing playbook
+New vault Password: XXXXXXXXXX
+Confirm New Vault password: XXXXXXX
+Encryption Succesful
+
+4)ansible-vault edit playbookname  ------------------------> to edit encrypted playbook 
+
+5)ansible-vault decrypt playbook  -------------------------> to decrypt playbook
+
+6)ansible-vault rekey playbook   ---------------------------> to change password for vault
+
+7)ansible-vault view playbookname    ------------------------> to view the content in encrypted playbook
+
+8)ansible-vault encrypt_string prasanna   ---------------------> to encrypt perticular string.
+
+This we can use as passwd under variable in the playbooks.
+
+
+
+
